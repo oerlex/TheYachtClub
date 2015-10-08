@@ -26,18 +26,23 @@ namespace TheYachtClub.View
             switch (intTemp)
             {
                 case 1:
+                    System.Console.WriteLine(" ");
                     new_Member();
                     break;
                 case 2:
+                    System.Console.WriteLine(" ");
                     member_view();
                     break;
                 case 3:
+                    System.Console.WriteLine(" ");
                     compact_view();
                     break;
                 case 4:
+                    System.Console.WriteLine(" ");
                     verbose_view();
                     break;
                 case 5:
+                    System.Console.WriteLine(" ");
                     member_edit();
                     break;
 
@@ -60,7 +65,7 @@ namespace TheYachtClub.View
             {
                 if (m.Personal_id.Equals(personal_Number))
                 {
-                    System.Console.WriteLine("hello, " + m.First_name + ", what would you like to edit?");
+                    System.Console.WriteLine("hello, Mrs/Mr." + m.First_name + ", what would you like to edit?");
                     System.Console.WriteLine("press 1 to edit first name");
                     System.Console.WriteLine("press 2 to edit Last name");
                     System.Console.WriteLine("press 3 to edit boat information");
@@ -99,16 +104,36 @@ namespace TheYachtClub.View
         {
 
             System.Console.WriteLine("Are you sure you want to leave the best yacht club EUW? (Y/N)");
-            if ((Console.ReadKey().Equals("Y")) || (Console.ReadKey().Equals("y")))
+            string input = Console.ReadLine();
+            switch (input.ToLower())
             {
-                handler.deleteMember(personal_id);
-                System.Console.WriteLine("GOODBYE");
-                base_Loop();
+                case "y":
+
+                    handler.deleteMember(personal_id);
+                    System.Console.WriteLine("GOODBYE");
+                    base_Loop();
+                    break;
+
+                case "n":
+
+
+                    Console.WriteLine("Too bad!");
+                    base_Loop();
+                    break;
             }
-            else
-            {
-                base_Loop();
-            }
+            
+               
+               
+            
+            
+
+
+
+              
+            
+            
+            
+        
         }
 
 
@@ -167,10 +192,12 @@ namespace TheYachtClub.View
             string name = Console.ReadLine();
             System.Console.WriteLine("What type of boat would you like to add?");
             string type = Console.ReadLine();
-            System.Console.WriteLine("How long is the boat?");
+            System.Console.WriteLine("How long is the boat? (in meters) ");
             string length = Console.ReadLine();
 
             handler.addBoat(personalID, name, type, length);
+
+            System.Console.WriteLine("Thank you " + name + " was added to your List of boats");
 
             base_Loop();
         }
@@ -269,7 +296,7 @@ namespace TheYachtClub.View
 
             foreach (Member m in handler.getAllMembers())
             {
-                System.Console.WriteLine(m.Personal_id + " | " + m.Last_name + " | " + m.First_name + " | " + m.Member_id.ToString());
+                System.Console.WriteLine( m.First_name + " | " + m.Last_name);
             }
 
             System.Console.WriteLine("press any key to return to Home");
@@ -296,15 +323,29 @@ namespace TheYachtClub.View
             handler.addMember(personal_number, rnd, first_name, last_name);
 
             System.Console.WriteLine("Thank you " + first_name + " for joining our yatch club!");
-            System.Console.WriteLine("Do you have any Boats to register with us?   (Y/N)");
-            if ((Console.ReadKey().Equals("Y")) || (Console.ReadKey().Equals("y")))
+            System.Console.WriteLine("Would you like to add a boat " + first_name + "?");
+
+
+            string input = Console.ReadLine();
+            switch (input.ToLower())
             {
-                edit_boat_Info(personal_number);
+                case "y":
+
+                    edit_boat_Info(personal_number);
+                   
+                    
+                    break;
+
+                case "n":
+
+
+               
+                    base_Loop();
+                    break;
             }
-            else
-            {
-                base_Loop();
-            }
+
+            base_Loop();
+            
         }
     }
 
