@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\RegistryHandler.cs" />
+    <Compile Include="Controller\Validator.cs" />
     <Compile Include="Model\Boat.cs" />
     <Compile Include="Model\Member.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
