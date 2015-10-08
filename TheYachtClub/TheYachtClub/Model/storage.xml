@@ -24,4 +24,20 @@
   <Member personal_id="1231" last_name="Spottka" first_name="Alex" member_id="5a92a90a-4f29-4af4-94f7-93ca7e04b677">
     <boats />
   </Member>
+  <Member personal_id="1232141" last_name="dasdasd" first_name="fasfasfa" member_id="1ef50a12-302c-48cf-95f4-3c65d8675a47">
+    <boats />
+  </Member>
+  <Member personal_id="124" last_name="qwer" first_name="qwer" member_id="612d2171-2483-422c-b231-2633f5638b46">
+    <boats />
+  </Member>
+  <Member personal_id="214" last_name="qwer" first_name="qwer" member_id="f8fe76e1-cfaa-4a94-b860-1812be0a1588">
+    <boats />
+  </Member>
+  <Member personal_id="123" last_name="mydong" first_name="yourdong" member_id="fe938c65-114a-45cd-b26d-e24289bc1f72">
+    <boats />
+    <Boat name="boat" length="30" type="sailboat" />
+  </Member>
+  <Member personal_id="67" last_name="ytr" first_name="ty" member_id="00d54028-aa53-4b02-ab60-416f1fc4a4bf">
+    <boats />
+  </Member>
 </YachtClub>
