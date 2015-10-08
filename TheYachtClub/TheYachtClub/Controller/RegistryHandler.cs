@@ -56,12 +56,15 @@ namespace YachtClub.Controller
                 
                     string length = xEle.Attribute("length").Value;
 
-                    string temp = boatElement.Attribute("type").Value;
+                    string temp1 = boatElement.Attribute("type").Value;
 
-                    Boat.boats_type t = (Boat.boats_type)Enum.Parse(typeof(Boat.boats_type), temp);
+                    Boat.boats_type type = (Boat.boats_type)Enum.Parse(typeof(Boat.boats_type), temp1);
+                    
+                    String temp2 = xEle.Attribute("boat_id").Value;
+                    Guid boat_id = Guid.Parse(temp2);
 
-                    Boat b = new Boat(boatElement.Attribute("name").Value, Int32.Parse(length), t);
-                    memberBoats.Add(b);
+                    Boat boat = new Boat(boatElement.Attribute("name").Value, Int32.Parse(length), type, boat_id);
+                    memberBoats.Add(boat);
                 }
             }
             return memberBoats;
