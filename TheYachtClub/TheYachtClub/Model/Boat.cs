@@ -30,6 +30,14 @@ namespace YachtClub.Model
             boat_id = new Guid();
         }
 
+        public Boat(string name, int length, boats_type type, Guid boat_id)
+        {
+            this.name = name;
+            this.length = length;
+            this.type = type;
+            this.boat_id = boat_id;
+        }
+
         public string Name { get { return name; } set { name = value; } }
         public int Length { get { return length; } set { length = value; } }
         public boats_type Type { get { return type; } set { type = value; } }
