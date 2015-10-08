@@ -158,7 +158,7 @@ namespace YachtClub.Controller
         }
 
         //Adds a member in xaml database file
-        public void addMember(string personalNumber, Guid memberID, string lastName, string firstName)
+        public void addMember(string personalNumber, Guid memberID, string firstName, string lastName)
         {
             XDocument myxml = XDocument.Load("..\\..\\Model\\storage.xml");
 
