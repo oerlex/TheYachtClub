@@ -253,7 +253,7 @@ namespace TheYachtClub
 
             foreach (Member m in handler.getAllMembers())
             {
-                System.Console.WriteLine(m.Personal_id + " | " + m.Last_name + " | " + m.First_name + " | " + m.Member_id.ToString() + "|" + m.Boats);
+                System.Console.WriteLine(m.Personal_id + " | " + m.Last_name + " | " + m.First_name + " | " + m.Member_id.ToString() + "|");
             }
 
             System.Console.WriteLine("press any key to return to Home");

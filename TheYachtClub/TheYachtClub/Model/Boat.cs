@@ -18,6 +18,7 @@ namespace YachtClub.Model
         private string name;
         private int length;
         private boats_type type;
+        private Guid boat_id;
 
         public Boat() { }
 
@@ -26,10 +27,12 @@ namespace YachtClub.Model
             this.name = name;
             this.length = length;
             this.type = type;
+            boat_id = new Guid();
         }
 
         public string Name { get { return name; } set { name = value; } }
         public int Length { get { return length; } set { length = value; } }
         public boats_type Type { get { return type; } set { type = value; } }
+        public Guid BoatID { get { return boat_id; } set { boat_id = value; } }
     }
 }
