@@ -9,7 +9,7 @@ namespace YachtClub.Model
     class Member
     {
         private string personal_id;
-        private Guid member_id;
+        private Guid member_id;       //Creates a random hexadecimal number
         private string first_name;
         private string last_name;
     
