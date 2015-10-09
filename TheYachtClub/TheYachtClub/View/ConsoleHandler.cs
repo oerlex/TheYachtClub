@@ -252,10 +252,11 @@ namespace TheYachtClub.View
             // i need 
             // member name, personal number, member id and boats with boat information
             RegistryHandler handler = new RegistryHandler();
+            
             foreach (Member m in handler.getAllMembers())
             {
                 List<Boat> boats = handler.getMemberBoats(m.Personal_id);
-                System.Console.WriteLine(m.Personal_id + " | " + m.Last_name + " | " + m.First_name + " | " + m.Member_id);
+                System.Console.WriteLine(m.Personal_id + " | " + m.Last_name + " | " + m.First_name + " | " + m.Member_id + "|" ) ;
                 foreach (Boat b in boats)
                 {
                     System.Console.WriteLine(b.Name + " | " + b.Length + " | " + b.Type);
@@ -277,7 +278,10 @@ namespace TheYachtClub.View
 
             foreach (Member m in handler.getAllMembers())
             {
-                System.Console.WriteLine(m.Personal_id + " | " + m.Last_name + " | " + m.First_name + " | " + m.Member_id.ToString() + "|" + m.Boats);
+                StringBuilder memList = new StringBuilder();
+
+                memList.Append(m.Personal_id);
+                System.Console.WriteLine(m.Personal_id + " | " + m.Last_name + " | " + m.First_name + " | " + m.Member_id.ToString());
             }
 
             System.Console.WriteLine("press any key to return to Home");
