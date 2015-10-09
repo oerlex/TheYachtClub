@@ -181,12 +181,6 @@ namespace YachtClub.Controller
             else { throw new Exception("Member already exists."); }
         }
 
-        //Clears the xaml database file
-        public void clear(){
-            XDocument doc = XDocument.Load("..\\..\\Model\\storage.xml");
-            doc.Root.RemoveNodes();
-        }
-
         //A method for adding a boat
         public void addBoat(string personalNumber, string name, string type, string length){
             XDocument myxml = XDocument.Load("..\\..\\Model\\storage.xml");
