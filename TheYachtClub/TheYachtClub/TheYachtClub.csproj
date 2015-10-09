@@ -65,6 +65,10 @@
     <Content Include="Diagrams\SequenceDiagramm Input Output.png" />
     <Content Include="Model\storage.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Peer reviews\Our peer reviews  to others\" />
+    <Folder Include="Peer reviews\Peer reviews of others\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -27,7 +27,7 @@ namespace YachtClub.Model
             this.name = name;
             this.length = length;
             this.type = type;
-            boat_id = new Guid();
+            boat_id = new Guid();       //Creates a random hexadecimal number
         }
 
         public Boat(string name, int length, boats_type type, Guid boat_id)
