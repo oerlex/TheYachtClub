@@ -91,7 +91,8 @@ namespace YachtClub.Controller
 
                 return m;
             }
-            else { throw new Exception("Member does not exist."); }
+            else {
+                throw new Exception("Member does not exist."); }
         }
 
         //Returns a list of all the members in the xaml file
