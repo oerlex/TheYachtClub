@@ -92,9 +92,7 @@ namespace YachtClub.Controller
                 return m;
             }
             else {
-
-                throw new Exception("Member does not exist.");
-            }
+                throw new Exception("Member does not exist."); }
         }
 
         //Returns a list of all the members in the xaml file
@@ -176,8 +174,6 @@ namespace YachtClub.Controller
                 element.SetAttributeValue("last_name", lastName);
                 element.SetAttributeValue("first_name", firstName);
                 element.SetAttributeValue("member_id", memberID.ToString());
-
-               
 
                 myxml.Save("..\\..\\Model\\storage.xml");
             }
