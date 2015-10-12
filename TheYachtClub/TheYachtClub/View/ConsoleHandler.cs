@@ -70,6 +70,7 @@ namespace TheYachtClub.View
                     System.Console.WriteLine("press 2 to edit Last name");
                     System.Console.WriteLine("press 3 to edit boat information");
                     System.Console.WriteLine("press 4 to delete user");
+                    System.Console.WriteLine("Press 5 to view member information");
                     int intTemp = Convert.ToInt32(Console.ReadLine());
 
                     switch (intTemp)
@@ -86,6 +87,9 @@ namespace TheYachtClub.View
                         case 4:
                             delete_User(m.Personal_id);
                             break;
+                        case 5:
+                            View_Personal_Info(m.Personal_id);
+                            break;
                         default:
                             Console.WriteLine("That number was not between the specified contraints");
                             base_Loop();
@@ -94,6 +98,18 @@ namespace TheYachtClub.View
                 }
             }
             Console.Error.WriteLine("Im sorry, but your personal number was not recognized in our current list of members");
+        }
+
+        private void View_Personal_Info(string personal_id)
+        {
+            Member m = handler.getMember(personal_id);
+            System.Console.WriteLine("Personal information for member " + m.First_name);
+            System.Console.WriteLine("Full name: " + m.First_name + " " + m.Last_name);
+            System.Console.WriteLine("Personal number: " + m.Personal_id);
+            System.Console.WriteLine("Member ID: " + m.Member_id);
+            
+            System.Console.WriteLine("Member's Boats: " + handler.getMemberBoats(personal_id));
+
         }
 
 
@@ -327,27 +343,7 @@ namespace TheYachtClub.View
             handler.addMember(personal_number, rnd, first_name, last_name);
 
             System.Console.WriteLine("Thank you " + first_name + " for joining our yatch club!");
-            System.Console.WriteLine("Would you like to add a boat " + first_name + "?");
-
-
-            string input = Console.ReadLine();
-            switch (input.ToLower())
-            {
-                case "y":
-
-                    edit_boat_Info(personal_number);
-                   
-                    
-                    break;
-
-                case "n":
-
-
-               
-                    base_Loop();
-                    break;
-            }
-
+          
             base_Loop();
             
         }
