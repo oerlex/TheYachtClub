@@ -252,7 +252,7 @@ namespace TheYachtClub.View
                 System.Console.WriteLine(m.Personal_id + " | " + m.Last_name + " | " + m.First_name + " | " + m.Member_id + "|" ) ;
                 foreach (Boat b in boats)
                 {
-                    System.Console.WriteLine(b.Name + " | " + b.Length + " | " + b.Type);
+                    System.Console.WriteLine(b.Name + " | " + b.Length + " | " + b.Type + " | " + b.BoatID);
                 }
             }
             System.Console.WriteLine("press any key to return to Home");
@@ -272,9 +272,9 @@ namespace TheYachtClub.View
             foreach (Member m in handler.getAllMembers())
             {
                 StringBuilder memList = new StringBuilder();
-
+                int boats_no = handler.getMemberBoats(m.Personal_id).Count();
                 memList.Append(m.Personal_id);
-                System.Console.WriteLine(m.Personal_id + " | " + m.Last_name + " | " + m.First_name + " | " + m.Member_id.ToString());
+                System.Console.WriteLine(m.Personal_id + " | " + m.Last_name + " | " + m.First_name + " | " + m.Member_id.ToString() + " | " + boats_no);
             }
 
             System.Console.WriteLine("press any key to return to Home");
