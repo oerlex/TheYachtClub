@@ -12,6 +12,7 @@ namespace TheYachtClub.View
     {
         public RegistryHandler handler = new RegistryHandler();
 
+		//The main menu where the user can choose which action to perform
         public void base_Loop()
         {
             System.Console.WriteLine(" ");
@@ -100,9 +101,7 @@ namespace TheYachtClub.View
         /*
          * Method that gives the user the option to remove a user
          */
-        private void delete_User(string personal_id)
-        {
-
+        private void delete_User(string personal_id){
             System.Console.WriteLine("Are you sure you want to leave the best yacht club EUW? (Y/N)");
             string input = Console.ReadLine();
             switch (input.ToLower())
@@ -192,16 +191,21 @@ namespace TheYachtClub.View
             System.Console.WriteLine("What is the new Last Name?");
             string last_name = Console.ReadLine();
 
-            Member mem = handler.getMember(personal_id);
-            mem.Last_name = last_name;
+			if (Controller.Validator.validateMembername (last_name)) {
+				Member mem = handler.getMember (personal_id);
+				mem.Last_name = last_name;
 
-            handler.deleteMember(personal_id);
-            handler.addMember(mem.Personal_id, mem.Member_id, mem.Last_name, mem.First_name);
+				handler.deleteMember (personal_id);
+				handler.addMember (mem.Personal_id, mem.Member_id, mem.Last_name, mem.First_name);
 
-            System.Console.WriteLine("thank you " + last_name + " your information has been updated");
-            System.Console.WriteLine("press any key to continue");
-            Console.ReadKey();
-            System.Console.WriteLine(" ");
+				System.Console.WriteLine ("thank you " + last_name + " your information has been updated");
+				System.Console.WriteLine ("press any key to continue");
+				Console.ReadKey ();
+				System.Console.WriteLine (" ");
+			} else {
+				System.Console.WriteLine ("The name can't exceed the limit of 20 characters");
+				edit_Last_name ();
+			}
             base_Loop();
         }
 
@@ -213,16 +217,22 @@ namespace TheYachtClub.View
             System.Console.WriteLine("What is the new First Name?");
             string first_name = Console.ReadLine();
 
-            Member mem = handler.getMember(personal_id);
-            mem.First_name = first_name;
+			if(Controller.Validator.validateMembername(first_name)){
+	            Member mem = handler.getMember(personal_id);
+	            mem.First_name = first_name;
 
-            handler.deleteMember(personal_id);
-            handler.addMember(mem.Personal_id, mem.Member_id, mem.Last_name, mem.First_name);
+	            handler.deleteMember(personal_id);
+	            handler.addMember(mem.Personal_id, mem.Member_id, mem.Last_name, mem.First_name);
 
-            System.Console.WriteLine("thank you " + first_name + " your information has been updated");
-            System.Console.WriteLine("press any key to continue");
-            Console.ReadKey();
-            System.Console.WriteLine(" ");
+	            System.Console.WriteLine("thank you " + first_name + " your information has been updated");
+	            System.Console.WriteLine("press any key to continue");
+	            Console.ReadKey();
+	            System.Console.WriteLine(" ");
+
+			} else {
+				System.Console.WriteLine ("The name can't exceed the limit of 20 characters");
+				edit_First_name ();
+			}
             base_Loop();
         }
 
@@ -300,29 +310,44 @@ namespace TheYachtClub.View
         {
             System.Console.WriteLine("Hello new Member, what is your First name?");
             string first_name = Console.ReadLine();
-            System.Console.WriteLine("What is your Last name?");
-            string last_name = Console.ReadLine();
-            System.Console.WriteLine("what is your personal number?");
-            string personal_number = Console.ReadLine();
-            Guid rnd = Guid.NewGuid();
+			if (Controller.Validator.validateMembername (first_name)) {				
+				System.Console.WriteLine ("What is your Last name?");
+				string last_name = Console.ReadLine ();
+				if (Controller.Validator.validateMembername (last_name)) {					
+					System.Console.WriteLine ("what is your personal number?");
+					string personal_number = Console.ReadLine ();
+					if (Controller.Validator.validatePersonalnumber (personal_number)) {						
+						Guid rnd = Guid.NewGuid ();
 
-            handler.addMember(personal_number, rnd, first_name, last_name);
+						handler.addMember (personal_number, rnd, first_name, last_name);
 
-            System.Console.WriteLine("Thank you " + first_name + " for joining our yatch club!");
-            System.Console.WriteLine("Would you like to add a boat " + first_name + "?");
+						System.Console.WriteLine ("Thank you " + first_name + " for joining our yatch club!");
+						System.Console.WriteLine ("Would you like to add a boat " + first_name + "?");
 
 
-            string input = Console.ReadLine();
-            switch (input.ToLower())
-            {
-                case "y":
-                    edit_boat_Info(personal_number);                    
-                    break;
+						string input = Console.ReadLine ();
+						switch (input.ToLower ()) {
+						case "y":
+							edit_boat_Info (personal_number);                    
+							break;
 
-                case "n":               
-                    base_Loop();
-                    break;
-            }
+						case "n":               
+							base_Loop ();
+							break;
+						
+						}
+					}else {
+						System.Console.WriteLine ("The personal number doesn't consist of 10 character. Please check and try again");
+						new_Member ();
+					}
+				}else {
+					System.Console.WriteLine ("The name can't exceed the limit of 20 characters");
+					new_Member ();
+				}
+			} else {
+				System.Console.WriteLine ("The name can't exceed the limit of 20 characters");
+				new_Member ();
+			}
 
             base_Loop();
             
