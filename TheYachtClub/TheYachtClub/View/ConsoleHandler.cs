@@ -176,6 +176,7 @@ namespace TheYachtClub.View
             System.Console.WriteLine("How long is the boat? (in meters) ");
             string length = Console.ReadLine();
 
+            
             handler.addBoat(personalID, name, type, length);
 
             System.Console.WriteLine("Thank you " + name + " was added to your List of boats");
@@ -317,9 +318,9 @@ namespace TheYachtClub.View
 					System.Console.WriteLine ("what is your personal number?");
 					string personal_number = Console.ReadLine ();
 					if (Controller.Validator.validatePersonalnumber (personal_number)) {						
-						Guid rnd = Guid.NewGuid ();
+						
 
-						handler.addMember (personal_number, rnd, first_name, last_name);
+						handler.addMember (personal_number, first_name, last_name);
 
 						System.Console.WriteLine ("Thank you " + first_name + " for joining our yatch club!");
 						System.Console.WriteLine ("Would you like to add a boat " + first_name + "?");

@@ -1,37 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <YachtClub>
-  <Member personal_id="1231414" last_name="dong" first_name="dong" member_id="3db78db5-19af-4f67-a682-5110dd6cf33f">
-    <boats />
+  <Member personal_id="9601163232" last_name="houssein" first_name="hatem" member_id="cdb11d33-c51d-49bf-8624-e7b3af336df9">
+    <Boat name="coco" length="420" type="Sailboat" boatID="24c85736-99a8-48f6-a229-b60fe89e3a25" />
+    <Boat name="coco" length="420" type="Sailboat" boatID="8880b65e-ad72-40b5-bd29-63d2c767b1ff" />
   </Member>
-  <Member personal_id="312314" last_name="dasd" first_name="fasfd" member_id="79c017dd-9659-46c0-9dcc-cfbdc4eca0cb">
-    <boats />
-  </Member>
-  <Member personal_id="123153141" last_name="austin" first_name="pondong" member_id="73120eeb-5019-49c3-b23a-e3b34b7cd88f">
-    <boats />
-  </Member>
-  <Member personal_id="12314141" last_name="dafgaf" first_name="fasfgasfa" member_id="1a2952a5-09a6-48b0-bfa9-38f470b4678b">
-    <boats />
-  </Member>
-  <Member personal_id="21415r125" last_name="fdafasf" first_name="fgasfas" member_id="55f024de-39db-4b3d-9886-0d16ceb2a921">
-    <boats />
-  </Member>
-  <Member personal_id="12541242" last_name="gadfsda" first_name="dongerihn" member_id="15bf3aa0-6f22-43db-875b-a8e89cab5e8a">
-    <boats />
-  </Member>
-  <Member personal_id="1232141" last_name="dasdasd" first_name="fasfasfa" member_id="1ef50a12-302c-48cf-95f4-3c65d8675a47">
-    <boats />
-  </Member>
-  <Member personal_id="124" last_name="qwer" first_name="qwer" member_id="612d2171-2483-422c-b231-2633f5638b46">
-    <boats />
-  </Member>
-  <Member personal_id="214" last_name="qwer" first_name="qwer" member_id="f8fe76e1-cfaa-4a94-b860-1812be0a1588">
-    <boats />
-  </Member>
-  <Member personal_id="67" last_name="ytr" first_name="ty" member_id="00d54028-aa53-4b02-ab60-416f1fc4a4bf">
-    <boats />
-  </Member>
-  <Member personal_id="1234" last_name="like" first_name="you" member_id="905b9b40-6fd8-46d7-a926-a76fd01f9ef1" />
-  <Member personal_id="3" last_name="yourmums" first_name="dong" member_id="776fb22f-75b7-4466-9305-11956917fff1" />
-  <Member personal_id="123" last_name="hatem" first_name="mydong" member_id="fe938c65-114a-45cd-b26d-e24289bc1f72" />
-  <Member personal_id="9601163232" last_name="houssein" first_name="hatem" member_id="e448667c-2f91-4257-9903-1dbac7346ab6" />
 </YachtClub>
