@@ -26,13 +26,13 @@ namespace YachtClub.Controller
             if (boats.Any())
             {
                 XElement boatElement = boats.First();
-                String temp = boatElement.Attribute("length").Value;
+                String length= boatElement.Attribute("length").Value;
 
-                temp = boatElement.Attribute("type").Value;
+                String type = boatElement.Attribute("type").Value;
 
-                Boat.boats_type t = (Boat.boats_type)Enum.Parse(typeof(Boat.boats_type), temp);
+                Boat.boats_type t = (Boat.boats_type)Enum.Parse(typeof(Boat.boats_type), type);
 
-                Boat b = new Boat(boatElement.Attribute("name").Value, Int32.Parse(temp), t);
+                Boat b = new Boat(boatElement.Attribute("name").Value, Int32.Parse(length), t);
 
             }else
             {
