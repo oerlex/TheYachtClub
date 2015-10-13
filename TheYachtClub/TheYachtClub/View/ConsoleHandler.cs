@@ -196,7 +196,7 @@ namespace TheYachtClub.View
 				mem.Last_name = last_name;
 
 				handler.deleteMember (personal_id);
-				handler.addMember (mem.Personal_id, mem.Member_id, mem.Last_name, mem.First_name);
+				handler.addMember (mem.Personal_id, mem.Member_id, mem.First_name, mem.Last_name);
 
 				System.Console.WriteLine ("thank you " + last_name + " your information has been updated");
 				System.Console.WriteLine ("press any key to continue");
@@ -222,7 +222,7 @@ namespace TheYachtClub.View
 	            mem.First_name = first_name;
 
 	            handler.deleteMember(personal_id);
-	            handler.addMember(mem.Personal_id, mem.Member_id, mem.Last_name, mem.First_name);
+	            handler.addMember(mem.Personal_id, mem.Member_id, mem.First_name, mem.Last_name);
 
 	            System.Console.WriteLine("thank you " + first_name + " your information has been updated");
 	            System.Console.WriteLine("press any key to continue");
