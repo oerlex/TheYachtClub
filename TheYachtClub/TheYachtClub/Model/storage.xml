@@ -35,5 +35,7 @@
     <boats />
   </Member>
   <Member personal_id="1234" last_name="like" first_name="you" member_id="905b9b40-6fd8-46d7-a926-a76fd01f9ef1" />
-  <Member personal_id="3" last_name="yourmums" first_name="dong" member_id="776fb22f-75b7-4466-9305-11956917fff1" />
+  <Member personal_id="3" last_name="Dongerino" first_name="Dong" member_id="776fb22f-75b7-4466-9305-11956917fff1">
+    <Boat name="bob" length="20" type="sailboat" />
+  </Member>
 </YachtClub>

@@ -77,7 +77,7 @@ namespace YachtClub.Controller
             IEnumerable<XElement> members = (from x in doc.Root.Elements()
                                               where x.Attribute("personal_id").Value == personalNumber
                                               select x);
-            if (members.Elements().Count() != 0)
+            if (members.Any())
             {
                 XElement xEle = members.First();
                 Member m = new Member();
@@ -126,7 +126,7 @@ namespace YachtClub.Controller
             IEnumerable<XElement> members = (from x in doc.Root.Elements()
                                               where x.Attribute("personal_id").Value == personalNumber
                                               select x);
-            if (members.Elements().Count() != 0)
+            if (members.Any())
             {
                 XElement xEle = members.First();
                 xEle.Remove();
@@ -149,7 +149,7 @@ namespace YachtClub.Controller
                                            where x.Attribute("name").Value == boatName
                                            select x);
 
-            if (boats.Elements().Count() != 0)
+            if (boats.Any())
             {
                 XElement boatElement = boats.First();
                 boatElement.Remove();
@@ -195,7 +195,7 @@ namespace YachtClub.Controller
             IEnumerable<XElement> allBoats = (from x in member.Elements()
                                            select x);
 
-            if (allBoats.Elements().Count() != 0)
+            if (allBoats.Any())
             {
                 createBoat(member, element, name, type, length);
                 myxml.Save("..\\..\\Model\\storage.xml");
