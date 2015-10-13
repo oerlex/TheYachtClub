@@ -131,7 +131,7 @@ namespace TheYachtClub.View
             System.Console.WriteLine("hello, " + m.First_name + " what would u like to do?");
             System.Console.WriteLine("press 1 to add a Boat to your registry");
             System.Console.WriteLine("press 2 to delete a boat from your registry");
-
+            System.Console.WriteLine("press 3 to edit a current boat from your registry");
             int intTemp = Convert.ToInt32(Console.ReadLine());
 
             switch (intTemp)
@@ -142,11 +142,46 @@ namespace TheYachtClub.View
                 case 2:
                     delete_Boat(m.Personal_id);
                     break;
+                case 3:
+                    edit_Current_Boat(personal_id);
+                    break;
+                        
                 default:
                     Console.WriteLine("That number was not between the specified contraints");
                     base_Loop();
                     break;
             }
+        }
+
+        private void edit_Current_Boat(string personal_id)
+        {
+            System.Console.WriteLine("What is the name of the boat you would like to edit?");
+            string boat_Name = Console.ReadLine();
+
+
+
+            handler.getBoat(personal_id, boat_Name);
+            handler.deleteBoat(personal_id, boat_Name);
+
+
+
+            System.Console.WriteLine("What is the new name of the boat");
+            string name = Console.ReadLine();
+            System.Console.WriteLine("What is the type of this boat?");
+            string type = Console.ReadLine();
+            System.Console.WriteLine("How long is the boat? (in meters) ");
+            string length = Console.ReadLine();
+
+            handler.addBoat(personal_id, name, type, length);
+
+            System.Console.WriteLine("Thank you " + name + " was added to your List of boats");
+
+            base_Loop();
+
+
+
+
+            base_Loop();
         }
 
 
@@ -159,6 +194,9 @@ namespace TheYachtClub.View
             String boat_Name = Console.ReadLine();
 
             handler.deleteBoat(personal_id, boat_Name);
+
+            System.Console.WriteLine("Thank you, " + boat_Name + " was removed from your List of boats");
+
             base_Loop();
         }
 
@@ -222,7 +260,7 @@ namespace TheYachtClub.View
 	            mem.First_name = first_name;
 
 	            handler.deleteMember(personal_id);
-	            handler.addMember(mem.Personal_id, mem.Member_id, mem.Last_name, mem.First_name);
+	            handler.addMember(mem.Personal_id, mem.Member_id, mem.First_name ,mem.Last_name);
 
 	            System.Console.WriteLine("thank you " + first_name + " your information has been updated");
 	            System.Console.WriteLine("press any key to continue");

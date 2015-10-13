@@ -23,17 +23,23 @@ namespace YachtClub.Controller
             IEnumerable<XElement> boats = (from x in xEle.Elements()
                                            where x.Attribute("name").Value == boatName
                                            select x);
-            
+            if (boats.Any())
+            {
+                XElement boatElement = boats.First();
+                String temp = boatElement.Attribute("length").Value;
 
-            XElement boatElement = boats.First();
-            String temp = xEle.Attribute("length").Value;
+                temp = boatElement.Attribute("type").Value;
 
-            temp = boatElement.Attribute("type").Value;
-            
-            Boat.boats_type t = (Boat.boats_type)Enum.Parse(typeof(Boat.boats_type), temp);
+                Boat.boats_type t = (Boat.boats_type)Enum.Parse(typeof(Boat.boats_type), temp);
 
-            Boat b = new Boat(boatElement.Attribute("name").Value, Int32.Parse(temp),t) ;
-            return b;
+                Boat b = new Boat(boatElement.Attribute("name").Value, Int32.Parse(temp), t);
+
+            }else
+            {
+                throw new Exception("There is no boat for this member in the system");
+            }
+            return null;
+
         }
 
         //Returns all boats of the specific member 
