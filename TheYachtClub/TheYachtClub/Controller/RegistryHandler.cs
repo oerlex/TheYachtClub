@@ -57,16 +57,16 @@ namespace YachtClub.Controller
 
             List<Boat> memberBoats = new List<Boat>();
 
-            if (boats.Elements("Member").Any()) { 
+            if (boats.Any()) { 
                 foreach(XElement boatElement in boats){
-                
-                    string length = xEle.Attribute("length").Value;
+
+                    string length = boatElement.Attribute("length").Value;
 
                     string temp1 = boatElement.Attribute("type").Value;
 
                     Boat.boats_type type = (Boat.boats_type)Enum.Parse(typeof(Boat.boats_type), temp1);
                     
-                    String temp2 = xEle.Attribute("boat_id").Value;
+                    String temp2 = boatElement.Attribute("boatID").Value;
                     Guid boat_id = Guid.Parse(temp2);
 
                     Boat boat = new Boat(boatElement.Attribute("name").Value, Int32.Parse(length), type, boat_id);
@@ -165,7 +165,7 @@ namespace YachtClub.Controller
         }
 
         //Adds a member in xaml database file
-        public void addMember(string personalNumber, Guid memberID, string firstName, string lastName)
+        public void addMember(string personalNumber, string firstName, string lastName)
         {
             XDocument myxml = XDocument.Load("..\\..\\Model\\storage.xml");
 
@@ -179,13 +179,35 @@ namespace YachtClub.Controller
                 element.SetAttributeValue("personal_id", personalNumber);
                 element.SetAttributeValue("last_name", lastName);
                 element.SetAttributeValue("first_name", firstName);
-                element.SetAttributeValue("member_id", memberID.ToString());
+                Guid member_id = Guid.NewGuid();
+                element.SetAttributeValue("member_id", member_id.ToString());
 
                 myxml.Save("..\\..\\Model\\storage.xml");
             }
             else { throw new Exception("Member already exists."); }
         }
 
+        //Adds a member in xaml database file with extra parameter (member_id)
+        public void addMember(string personalNumber, Guid member_id, string firstName, string lastName)
+        {
+            XDocument myxml = XDocument.Load("..\\..\\Model\\storage.xml");
+
+            IEnumerable<XElement> members = (from x in myxml.Root.Elements()
+                                             where x.Attribute("personal_id").Value == personalNumber
+                                             select x);
+            if (members.Elements().Count() == 0)
+            {
+                XElement element = new XElement("Member");
+                myxml.Root.Add(element);
+                element.SetAttributeValue("personal_id", personalNumber);
+                element.SetAttributeValue("last_name", lastName);
+                element.SetAttributeValue("first_name", firstName);
+                element.SetAttributeValue("member_id", member_id.ToString());
+
+                myxml.Save("..\\..\\Model\\storage.xml");
+            }
+            else { throw new Exception("Member already exists."); }
+        }
         //A method for adding a boat
         public void addBoat(string personalNumber, string name, string type, string length){
             XDocument myxml = XDocument.Load("..\\..\\Model\\storage.xml");
@@ -203,7 +225,8 @@ namespace YachtClub.Controller
 
             if (allBoats.Any())
             {
-                createBoat(member, element, name, type, length);
+                Guid boat_id = Guid.NewGuid();
+                createBoat(member, element, name, type, length, boat_id);
                 myxml.Save("..\\..\\Model\\storage.xml");
             }
 
@@ -212,19 +235,21 @@ namespace YachtClub.Controller
                                            select x);
             if (boats.Elements().Count() == 0)
             {
-                createBoat(member, element, name, type, length);
+                Guid boat_id = Guid.NewGuid();
+                createBoat(member, element, name, type, length, boat_id);
                 myxml.Save("..\\..\\Model\\storage.xml");
             }
             else { throw new Exception("Boat already exists.");}
         }
 
        //Helping method for creating a boat in the database xaml file
-        private void createBoat(XElement member, XElement element, string name, string type, string length)
+        private void createBoat(XElement member, XElement element, string name, string type, string length, Guid boat_id)
         {
             member.Add(element);
             element.SetAttributeValue("name", name);
             element.SetAttributeValue("length", length);
             element.SetAttributeValue("type", type);
+            element.SetAttributeValue("boatID", boat_id.ToString());
         }
     }
 }
