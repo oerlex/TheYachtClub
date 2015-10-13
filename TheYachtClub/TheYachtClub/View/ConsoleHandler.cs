@@ -204,7 +204,7 @@ namespace TheYachtClub.View
 				System.Console.WriteLine (" ");
 			} else {
 				System.Console.WriteLine ("The name can't exceed the limit of 20 characters");
-				edit_Last_name ();
+				edit_Last_name(personal_id);
 			}
             base_Loop();
         }
@@ -231,7 +231,7 @@ namespace TheYachtClub.View
 
 			} else {
 				System.Console.WriteLine ("The name can't exceed the limit of 20 characters");
-				edit_First_name ();
+				edit_First_name(personal_id);
 			}
             base_Loop();
         }
