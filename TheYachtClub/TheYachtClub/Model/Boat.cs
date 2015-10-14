@@ -10,10 +10,10 @@ namespace YachtClub.Model
     {
         public enum boats_type
         {
-            Sailboat,
-            Motorsailer,
-            kayak,
-            Other
+            s,  //Sailboat
+            m,  //Motorboat
+            k,  //Kayak
+            o   //Other
         };
         private string name;
         private int length;

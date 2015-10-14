@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <YachtClub>
-  <Member personal_id="9601163232" last_name="houssein" first_name="hatem" member_id="cdb11d33-c51d-49bf-8624-e7b3af336df9">
-    <Boat name="coco" length="420" type="Sailboat" boatID="24c85736-99a8-48f6-a229-b60fe89e3a25" />
-    <Boat name="coco" length="420" type="Sailboat" boatID="8880b65e-ad72-40b5-bd29-63d2c767b1ff" />
-  </Member>
-  <Member personal_id="1337133740" last_name="spottka" first_name="alex" member_id="96a517df-2a54-4bdf-9753-7c5ff32b96a1">
-    <Boat name="theboat" length="70" type="Sailboat" boatID="1291968e-e91d-425a-b76e-9e8071a60e11" />
+  <Member personal_id="1234567890" last_name="odinsson" first_name="thor" member_id="413b69d9-14b5-400d-bb9e-11f4c336081a">
+    <Boat name="bob" length="30" type="s" boatID="06ae5ac7-e2b7-4616-863b-bc0e2ec48416" />
   </Member>
 </YachtClub>

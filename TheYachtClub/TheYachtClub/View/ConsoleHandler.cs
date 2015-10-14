@@ -210,6 +210,7 @@ namespace TheYachtClub.View
             System.Console.WriteLine("What is the name of the boat");
             string name = Console.ReadLine();
             System.Console.WriteLine("What type of boat would you like to add?");
+            System.Console.WriteLine("('s' for Sailboat, 'm' for Motorboat, 'k' for kayak, 'o' for other)");
             string type = Console.ReadLine();
             System.Console.WriteLine("How long is the boat? (in meters) ");
             string length = Console.ReadLine();
