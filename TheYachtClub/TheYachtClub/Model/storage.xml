@@ -3,4 +3,7 @@
   <Member personal_id="1234567890" last_name="odinsson" first_name="thor" member_id="413b69d9-14b5-400d-bb9e-11f4c336081a">
     <Boat name="bob" length="30" type="s" boatID="06ae5ac7-e2b7-4616-863b-bc0e2ec48416" />
   </Member>
+  <Member personal_id="0987654321" last_name="dong" first_name="ding" member_id="a615ae07-3f2e-4d4b-be34-fa1efce060ae">
+    <Boat name="steve" length="20" type="s" boatID="f8145e1f-3864-4c20-b225-a130c4650282" />
+  </Member>
 </YachtClub>

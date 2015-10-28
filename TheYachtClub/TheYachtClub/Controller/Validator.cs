@@ -14,7 +14,7 @@ namespace TheYachtClub.Controller
         /*
         *Validates the member name in terms of length and
         */
-        public static bool validateMembername(string name){
+        public  bool validateMembername(string name){
            if(name.Length >=20)
                 return false;
            return true;
@@ -23,7 +23,7 @@ namespace TheYachtClub.Controller
         /*
        *Validates the personal number. The length can't have more or less than 10 digits
        */
-        public static bool validatePersonalnumber(string personalNumber){
+        public bool validatePersonalnumber(string personalNumber){
             if (personalNumber.Length != 10)
                 return false;
             return true;

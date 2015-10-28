@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheYachtClub.Controller;
 using YachtClub.Controller;
 using YachtClub.Model;
 
@@ -11,6 +12,7 @@ namespace TheYachtClub.View
     class ConsoleHandler
     {
         public RegistryHandler handler = new RegistryHandler();
+        public Validator validator = new Validator();
 
 		//The main menu where the user can choose which action to perform
         public void base_Loop()
@@ -230,7 +232,7 @@ namespace TheYachtClub.View
             System.Console.WriteLine("What is the new Last Name?");
             string last_name = Console.ReadLine();
 
-			if (Controller.Validator.validateMembername (last_name)) {
+			if (validator.validateMembername (last_name)) {
 				Member mem = handler.getMember (personal_id);
 				mem.Last_name = last_name;
 
@@ -256,7 +258,7 @@ namespace TheYachtClub.View
             System.Console.WriteLine("What is the new First Name?");
             string first_name = Console.ReadLine();
 
-			if(Controller.Validator.validateMembername(first_name)){
+			if(validator.validateMembername(first_name)){
 	            Member mem = handler.getMember(personal_id);
 	            mem.First_name = first_name;
 
@@ -349,13 +351,14 @@ namespace TheYachtClub.View
         {
             System.Console.WriteLine("Hello new Member, what is your First name?");
             string first_name = Console.ReadLine();
-			if (Controller.Validator.validateMembername (first_name)) {				
+           
+			if (validator.validateMembername (first_name)) {				
 				System.Console.WriteLine ("What is your Last name?");
 				string last_name = Console.ReadLine ();
-				if (Controller.Validator.validateMembername (last_name)) {					
+				if (validator.validateMembername (last_name)) {					
 					System.Console.WriteLine ("what is your personal number?");
 					string personal_number = Console.ReadLine ();
-					if (Controller.Validator.validatePersonalnumber (personal_number)) {						
+					if (validator.validatePersonalnumber (personal_number)) {						
 						Guid rnd = Guid.NewGuid ();
 
 						handler.addMember (personal_number, rnd, first_name, last_name);
