@@ -9,7 +9,7 @@ namespace TheYachtClub.Controller
     /*
      *The validator class takes care that the user inputs are valid 
      */
-    static class Validator
+    class Validator
     {
         /*
         *Validates the member name in terms of length and
